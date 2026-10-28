@@ -1,10 +1,57 @@
-# today i learned
+# today i learned (`today_i_learned`)
 
-Short notes on one thing learned. One file per note, distilled from hands-on sessions across our `aarch64` Termux + Kali PRoot workstation, AI harnesses (`agy`, `Grok`, `OpenCode`), and client engineering projects.
+Short notes on one thing learned—paired with a **mass-appeal Flutter micro-knowledge widget** (`TodayILearnedWidget`) that turns `<topic>/<slug>.md` notes into an interactive, swipeable, searchable learning feed.
+
+One file per note, distilled from hands-on sessions across our `aarch64` Termux + Kali PRoot workstation, AI harnesses (`agy`, `Grok`, `OpenCode`), and electrical trade engineering projects.
 
 ---
 
-## Topic Index (20 Notes)
+## ✨ Documentation & Architecture Guides
+
+- **[`README.md`](README.md)** — Topic index of all 20 canonical notes, quick-start guide, and markdown specification.
+- **[`FLUTTER.md`](FLUTTER.md)** — Flutter package architecture, `TodayILearnedWidget` API reference, state management, and instructions for running on Android, Linux X11 (`DISPLAY=:0`), and Web.
+- **[`DESIGN.md`](DESIGN.md)** — Visual design system ("Obsidian & Neon"), Material 3 color tokens, typography scale, micro-interactions, and mass-appeal UX psychology.
+
+---
+
+## 📱 Flutter `TodayILearnedWidget` Highlights
+
+The repository includes a zero-dependency Flutter package (`lib/today_i_learned.dart`) built for universal appeal:
+
+- **Dual Discovery Modes:** Toggle seamlessly between a **Responsive Bento Grid** (1, 2, or 3 columns depending on viewport width) and a **Swipeable Card Deck** (`PageView` with 0.88 viewport fraction).
+- **6 Color-Coded Domain Topics:** Each category folder (`johnny-decimal`, `termux-kali`, `conduit-bending`, `electrician`, `ai-harnesses`, `turbo-the-turtle`) has a dedicated neon accent palette, emoji badge, and Material 3 icon.
+- **Instant Full-Text & Tag Search:** Filter across titles, dates, CLI flags, NEC code sections (`358.26`, `Chapter 9 Table 1`), and Johnny Decimal paths in real time.
+- **One-Tap Command & Markdown Copying:** Every card extracts its primary CLI command or trade formula into a monospace terminal pill with one-tap clipboard copy and haptic feedback.
+- **Gamified Mastery & Streak Bar:** Track how many TIL facts you have mastered (`Check` toggle) alongside a bookmark filter and a **"Surprise Me"** random spotlight shuffler.
+- **Built-In `<topic>/<slug>.md` Composer:** Tap **+ New TIL** to author a new note in-app, automatically generate its kebab-case slug, and copy the formatted Markdown directly to your clipboard.
+
+### Drop-in Usage
+
+```dart
+import 'package:flutter/material.dart';
+import 'package:today_i_learned/today_i_learned.dart';
+
+class KnowledgeScreen extends StatelessWidget {
+  const KnowledgeScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: TodayILearnedWidget(
+        initialViewMode: TilViewMode.bentoGrid,
+        enableComposer: true,
+        onNoteSelected: (TilNote note) {
+          debugPrint('Opened: ${note.relativePath}');
+        },
+      ),
+    );
+  }
+}
+```
+
+---
+
+## 📚 Topic Index (20 Notes)
 
 ### 🗂️ `johnny-decimal/` — System Spine & Filesystem Layout
 - [The home areas are the Johnny Decimal system](johnny-decimal/areas.md) (`2026-10-26`)
@@ -40,9 +87,9 @@ Short notes on one thing learned. One file per note, distilled from hands-on ses
 
 ---
 
-## Add a note
+## ✍️ Add a Note
 
-Create `<topic>/<slug>.md`:
+Create `<topic>/<slug>.md` (or use the **+ New TIL** button inside the Flutter widget):
 
 ```markdown
 # What you learned
