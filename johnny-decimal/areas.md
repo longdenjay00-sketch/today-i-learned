@@ -17,5 +17,6 @@ These directories live in the Termux home and are linked from `/root`. New files
 | `70_BACKUP` | Small dated backups. |
 | `80_ARCHIVE` | Cold storage. The rootfs tarball is `80_ARCHIVE/debian.tar`. |
 | `90_VAULT` | Secrets. Mode 700. |
+| `91_OBSIDIAN` | Obsidian vaults. One child folder per vault. Added 2026-10-27. |
 
-A category inside an area is `AC_name`. `10_DEV/11_PROJECTS` is category 11. Do not add another top-level area, and do not nest another `00_INBOX` inside a project.
+A category inside an area is `AC_name`. `10_DEV/11_PROJECTS` is category 11. Do not nest another `00_INBOX` inside a project. A new top-level area needs a number, a row in this table, and a `/root` symlink.
