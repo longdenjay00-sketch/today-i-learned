@@ -270,8 +270,33 @@ class TilRepository {
     ),
 
     // -------------------------------------------------------------------------
-    // 5. ai-harnesses/ (3 notes)
+    // 5. ai-harnesses/ (5 notes)
     // -------------------------------------------------------------------------
+    TilNote(
+      slug: 'agy-termux-proot-wrapper',
+      topic: TilTopic.aiHarnesses,
+      title: 'Bridge glibc agy into Termux via proot-distro login wrapper',
+      date: '2026-10-28',
+      summary:
+          'Because `/usr/local/bin/agy` inside the Kali rootfs is a `glibc` `aarch64` ELF executable (`/lib/ld-linux-aarch64.so.1`), it cannot execute directly under Termux\'s `bionic` libc.',
+      details:
+          'Create `/root/50_OPS/agy-termux` (`chmod 755`) wrapping `proot-distro login debian --work-dir "\$WORKDIR" -- /usr/local/bin/agy "\$@"` and symlink it to `/data/data/com.termux/files/usr/bin/agy` so `agy` runs seamlessly from any Termux shell.',
+      keyCommandOrRule:
+          'ln -s /data/data/com.termux/files/home/50_OPS/agy-termux \$PREFIX/bin/agy',
+      tags: <String>['agy-termux', 'proot-distro', 'glibc', 'bionic'],
+    ),
+    TilNote(
+      slug: 'flutter-til-widget-architecture',
+      topic: TilTopic.aiHarnesses,
+      title: 'Dual Bento Grid and Swipe Deck layout in TodayILearnedWidget',
+      date: '2026-10-28',
+      summary:
+          '`lib/widgets/today_i_learned_widget.dart` renders `<topic>/<slug>.md` notes in two switchable views: a responsive `SliverLayoutBuilder` Bento Grid (`1`–`3` columns) and a horizontal `PageView.builder` Swipe Deck (`viewportFraction: 0.88`).',
+      details:
+          '`TilNote.fromMarkdown` extracts the `# Title`, `YYYY-MM-DD` date, Markdown pipe tables (`TilTableData`), and longest inline backtick code span for one-tap clipboard copying.',
+      keyCommandOrRule: 'flutter test test/today_i_learned_widget_test.dart',
+      tags: <String>['TodayILearnedWidget', 'SliverLayoutBuilder', 'TilNote'],
+    ),
     TilNote(
       slug: 'grok-headless-imagine',
       topic: TilTopic.aiHarnesses,

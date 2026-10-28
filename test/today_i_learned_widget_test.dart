@@ -4,14 +4,14 @@ import 'package:today_i_learned/today_i_learned.dart';
 
 void main() {
   group('TilRepository & TilNote domain tests', () {
-    test('contains all 20 canonical notes across 6 topics', () {
-      expect(TilRepository.allNotes.length, 20);
+    test('contains all 22 canonical notes across 6 topics', () {
+      expect(TilRepository.allNotes.length, 22);
       final counts = TilRepository.countByTopic();
       expect(counts[TilTopic.johnnyDecimal], 7);
       expect(counts[TilTopic.termuxKali], 5);
       expect(counts[TilTopic.conduitBending], 3);
       expect(counts[TilTopic.electrician], 1);
-      expect(counts[TilTopic.aiHarnesses], 3);
+      expect(counts[TilTopic.aiHarnesses], 5);
       expect(counts[TilTopic.turboTheTurtle], 1);
     });
 
@@ -49,7 +49,7 @@ On a 90° EMT stub-up, subtract take-up from the target stub height (`mark = hei
       );
 
       expect(find.text('Today I Learned'), findsOneWidget);
-      expect(find.text('20 NOTES'), findsOneWidget);
+      expect(find.text('22 NOTES'), findsOneWidget);
       expect(find.text('All Topics'), findsOneWidget);
 
       // Search for a specific NEC rule

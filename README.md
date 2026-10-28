@@ -51,7 +51,7 @@ class KnowledgeScreen extends StatelessWidget {
 
 ---
 
-## 📚 Topic Index (20 Notes)
+## 📚 Topic Index (22 Notes)
 
 ### 🗂️ `johnny-decimal/` — System Spine & Filesystem Layout
 - [The home areas are the Johnny Decimal system](johnny-decimal/areas.md) (`2026-10-26`)
@@ -78,6 +78,8 @@ class KnowledgeScreen extends StatelessWidget {
 - [NEC Chapter 9 Table 1 conduit fill percentages and nipple rule](electrician/nec-chapter-9-table-1-fill.md) (`2026-10-18`)
 
 ### 🤖 `ai-harnesses/` — Antigravity (`agy`), Grok, OpenCode & Local Models
+- [Bridge glibc `agy` into Termux via `proot-distro login` wrapper](ai-harnesses/agy-termux-proot-wrapper.md) (`2026-10-28`)
+- [Dual Bento Grid and Swipe Deck layout in `TodayILearnedWidget`](ai-harnesses/flutter-til-widget-architecture.md) (`2026-10-28`)
 - [Run Grok in headless mode with `GenerateImage` for 16:9 hero banners](ai-harnesses/grok-headless-imagine.md) (`2026-10-28`)
 - [Install paths for `agy`, `grok`, `opencode`, and `codex` on this host](ai-harnesses/installed-coding-clis.md) (`2026-10-21`)
 - [Offline GGUF inference with `hf download` and `llama-cli`](ai-harnesses/local-lfm25-gguf-cache.md) (`2026-10-20`)
