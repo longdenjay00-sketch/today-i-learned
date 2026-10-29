@@ -270,8 +270,20 @@ class TilRepository {
     ),
 
     // -------------------------------------------------------------------------
-    // 5. ai-harnesses/ (5 notes)
+    // 5. ai-harnesses/ (6 notes)
     // -------------------------------------------------------------------------
+    TilNote(
+      slug: 'fifty-repos-developer-roadmap',
+      topic: TilTopic.aiHarnesses,
+      title: 'The 50-Repo Developer Roadmap from Foundational CLI to Industrial PRoot Construct',
+      date: '2026-10-29',
+      summary:
+          'A master architecture map organizing 50 essential developer repositories across 5 escalating tiers: Foundations, Operations, Advanced Systems, Industrial Cyber-Physical, and our host Kali PRoot / Termux construct.',
+      details:
+          'Tier 1 covers Foundations (Dotfiles, TIL, CLIs, Rust engines, Web, Mobile APK, Trade Math). Tier 2 handles Operations (Containers, Red Team, FFmpeg, SQLite, IoT). Tier 3 covers Advanced Systems & Agents. Tier 4 reaches Industrial SCADA & Robotics Kinematics. Tier 5 unlocks host/guest PRoot bridges and ARM64 tooling.',
+      keyCommandOrRule: '10_DEV/11_PROJECTS/today-i-learned/ai-harnesses/fifty-repos-developer-roadmap.md',
+      tags: <String>['roadmap', '50-repos', 'architecture', 'construct'],
+    ),
     TilNote(
       slug: 'agy-termux-proot-wrapper',
       topic: TilTopic.aiHarnesses,
