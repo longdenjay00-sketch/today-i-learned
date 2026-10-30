@@ -51,7 +51,7 @@ class KnowledgeScreen extends StatelessWidget {
 
 ---
 
-## 📚 Topic Index (23 Notes)
+## 📚 Topic Index (24 Notes)
 
 ### 🗂️ `johnny-decimal/` — System Spine & Filesystem Layout
 - [The home areas are the Johnny Decimal system](johnny-decimal/areas.md) (`2026-10-26`)
@@ -66,6 +66,7 @@ class KnowledgeScreen extends StatelessWidget {
 - [Start Termux:X11 from PRoot with `sv up tx11` and symlink `X0`](termux-kali/x11-display-socket.md) (`2026-10-23`)
 - [Firefox ESR under Kali PRoot requires sandbox overrides on `DISPLAY=:0`](termux-kali/firefox-proot-sandbox.md) (`2026-10-23`)
 - [Find the Termux SSH host after a DHCP change with Python `connect_ex`](termux-kali/ssh-termux-dhcp-sweep.md) (`2026-10-26`)
+- [Termux runsv keeps sshd stopped when a down trigger file is present](termux-kali/termux-runsv-sshd-down-file.md) (`2026-10-30`)
 - [Allow `esbuild` postinstall scripts under npm 12 on `aarch64`](termux-kali/esbuild-allow-scripts.md) (`2026-10-24`)
 - [Installed Android tools vs repo-only packages on Kali PRoot](termux-kali/android-tools-installed.md) (`2026-10-22`)
 

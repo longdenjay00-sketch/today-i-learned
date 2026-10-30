@@ -189,6 +189,19 @@ class TilRepository {
       tags: <String>['socket.connect_ex', 'port 8022', '~/.ssh/config'],
     ),
     TilNote(
+      slug: 'termux-runsv-sshd-down-file',
+      topic: TilTopic.termuxKali,
+      title:
+          'Termux runsv keeps sshd stopped when a down trigger file is present',
+      date: '2026-10-30',
+      summary:
+          'When runsvdir supervises Termux services, sshd stays down if a file named down exists in its service directory: /data/data/com.termux/files/usr/var/service/sshd/down.',
+      details:
+          'Clear the down file or start the service with `sv-enable sshd` (or `SVDIR=/data/data/com.termux/files/usr/var/service sv up sshd`), and inspect local Wi-Fi addresses via `ip addr show wlan0` to detect DHCP lease changes.',
+      keyCommandOrRule: 'sv-enable sshd',
+      tags: <String>['runsv', 'sshd', 'down file', 'sv-enable', 'wlan0'],
+    ),
+    TilNote(
       slug: 'esbuild-allow-scripts',
       topic: TilTopic.termuxKali,
       title: 'Allow esbuild postinstall scripts under npm 12 on aarch64',
