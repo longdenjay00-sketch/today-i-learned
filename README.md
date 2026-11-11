@@ -51,7 +51,7 @@ class KnowledgeScreen extends StatelessWidget {
 
 ---
 
-## 📚 Topic Index (24 Notes)
+## 📚 Topic Index (26 Notes)
 
 ### 🗂️ `johnny-decimal/` — System Spine & Filesystem Layout
 - [The home areas are the Johnny Decimal system](johnny-decimal/areas.md) (`2026-10-26`)
@@ -88,6 +88,10 @@ class KnowledgeScreen extends StatelessWidget {
 
 ### 🐢 `turbo-the-turtle/` — Media Pipeline & `ffmpeg`
 - [Re-encode upside-down phone video clips in `ffmpeg` to bake rotation](turbo-the-turtle/ffmpeg-lanczos-rotation-fix.md) (`2026-10-24`)
+
+### ⚙️ `cpp/` — Modern C++ & Compiler Mechanics
+- [Deep Dive: Inspecting the C++ Preprocessor with `g++ -E`](cpp/gxx-preprocessor-inspection.md) (`2026-11-10`)
+- [Comprehensive Reference: Essential and Advanced `g++` Compiler Flags](cpp/gxx-compiler-flags-reference.md) (`2026-11-10`)
 
 ---
 
