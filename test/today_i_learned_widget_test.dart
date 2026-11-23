@@ -4,15 +4,19 @@ import 'package:today_i_learned/today_i_learned.dart';
 
 void main() {
   group('TilRepository & TilNote domain tests', () {
-    test('contains all 24 canonical notes across 6 topics', () {
-      expect(TilRepository.allNotes.length, 24);
+    test('contains every note file across the topic folders', () {
+      expect(TilRepository.allNotes.length, 29);
       final counts = TilRepository.countByTopic();
       expect(counts[TilTopic.johnnyDecimal], 7);
-      expect(counts[TilTopic.termuxKali], 6);
+      expect(counts[TilTopic.termuxKali], 7);
       expect(counts[TilTopic.conduitBending], 3);
-      expect(counts[TilTopic.electrician], 1);
-      expect(counts[TilTopic.aiHarnesses], 6);
+      expect(counts[TilTopic.electrician], 2);
+      expect(counts[TilTopic.aiHarnesses], 7);
       expect(counts[TilTopic.turboTheTurtle], 1);
+      expect(counts[TilTopic.bitcoin], 1);
+      expect(counts[TilTopic.python], 1);
+      final paths = TilRepository.allNotes.map((note) => note.relativePath).toSet();
+      expect(paths.length, TilRepository.allNotes.length);
     });
 
     test('parses and serializes canonical <topic>/<slug>.md markdown', () {
@@ -49,7 +53,7 @@ On a 90° EMT stub-up, subtract take-up from the target stub height (`mark = hei
       );
 
       expect(find.text('Today I Learned'), findsOneWidget);
-      expect(find.text('24 NOTES'), findsOneWidget);
+      expect(find.text('29 NOTES'), findsOneWidget);
       expect(find.text('All Topics'), findsOneWidget);
 
       // Search for a specific NEC rule
