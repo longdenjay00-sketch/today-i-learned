@@ -8,7 +8,7 @@ One file per note, distilled from hands-on sessions across our `aarch64` Termux 
 
 ## ✨ Documentation & Architecture Guides
 
-- **[`README.md`](README.md)** — Topic index of all 20 canonical notes, quick-start guide, and markdown specification.
+- **[`README.md`](README.md)** — Topic index of every note, quick-start guide, and markdown specification.
 - **[`FLUTTER.md`](FLUTTER.md)** — Flutter package architecture, `TodayILearnedWidget` API reference, state management, and instructions for running on Android, Linux X11 (`DISPLAY=:0`), and Web.
 - **[`DESIGN.md`](DESIGN.md)** — Visual design system ("Obsidian & Neon"), Material 3 color tokens, typography scale, micro-interactions, and mass-appeal UX psychology.
 
@@ -19,7 +19,7 @@ One file per note, distilled from hands-on sessions across our `aarch64` Termux 
 The repository includes a zero-dependency Flutter package (`lib/today_i_learned.dart`) built for universal appeal:
 
 - **Dual Discovery Modes:** Toggle seamlessly between a **Responsive Bento Grid** (1, 2, or 3 columns depending on viewport width) and a **Swipeable Card Deck** (`PageView` with 0.88 viewport fraction).
-- **6 Color-Coded Domain Topics:** Each category folder (`johnny-decimal`, `termux-kali`, `conduit-bending`, `electrician`, `ai-harnesses`, `turbo-the-turtle`) has a dedicated neon accent palette, emoji badge, and Material 3 icon.
+- **Color-Coded Domain Topics:** Each category folder (`johnny-decimal`, `termux-kali`, `conduit-bending`, `electrician`, `ai-harnesses`, `turbo-the-turtle`, `bitcoin`, `python`) has a dedicated neon accent palette, emoji badge, and Material 3 icon.
 - **Instant Full-Text & Tag Search:** Filter across titles, dates, CLI flags, NEC code sections (`358.26`, `Chapter 9 Table 1`), and Johnny Decimal paths in real time.
 - **One-Tap Command & Markdown Copying:** Every card extracts its primary CLI command or trade formula into a monospace terminal pill with one-tap clipboard copy and haptic feedback.
 - **Gamified Mastery & Streak Bar:** Track how many TIL facts you have mastered (`Check` toggle) alongside a bookmark filter and a **"Surprise Me"** random spotlight shuffler.
@@ -51,7 +51,7 @@ class KnowledgeScreen extends StatelessWidget {
 
 ---
 
-## 📚 Topic Index (24 Notes)
+## 📚 Topic Index (29 Notes)
 
 ### 🗂️ `johnny-decimal/` — System Spine & Filesystem Layout
 - [The home areas are the Johnny Decimal system](johnny-decimal/areas.md) (`2026-10-26`)
@@ -69,6 +69,7 @@ class KnowledgeScreen extends StatelessWidget {
 - [Termux runsv keeps sshd stopped when a down trigger file is present](termux-kali/termux-runsv-sshd-down-file.md) (`2026-10-30`)
 - [Allow `esbuild` postinstall scripts under npm 12 on `aarch64`](termux-kali/esbuild-allow-scripts.md) (`2026-10-24`)
 - [Installed Android tools vs repo-only packages on Kali PRoot](termux-kali/android-tools-installed.md) (`2026-10-22`)
+- [PRoot glibc clients need the X11 socket at /tmp](termux-kali/x11-bionic-glibc-socket.md) (`2026-11-04`)
 
 ### 🔧 `conduit-bending/` — EMT Hand-Bender Math & NEC 358
 - [EMT hand-bender take-up is 5 in., 6 in., and 8 in.](conduit-bending/take-up-and-stub.md) (`2026-10-25`)
@@ -77,6 +78,7 @@ class KnowledgeScreen extends StatelessWidget {
 
 ### ⚡ `electrician/` — NEC Chapter 9 & Trade Curriculum
 - [NEC Chapter 9 Table 1 conduit fill percentages and nipple rule](electrician/nec-chapter-9-table-1-fill.md) (`2026-10-18`)
+- [NEC box fill and working-space clearances](electrician/nec-box-fill-and-working-space.md) (`2026-11-04`)
 
 ### 🤖 `ai-harnesses/` — Antigravity (`agy`), Grok, OpenCode & Local Models
 - [The 50-Repo Developer Roadmap from Foundational CLI to Industrial PRoot Construct](ai-harnesses/fifty-repos-developer-roadmap.md) (`2026-10-29`)
@@ -85,9 +87,16 @@ class KnowledgeScreen extends StatelessWidget {
 - [Run Grok in headless mode with `GenerateImage` for 16:9 hero banners](ai-harnesses/grok-headless-imagine.md) (`2026-10-28`)
 - [Install paths for `agy`, `grok`, `opencode`, and `codex` on this host](ai-harnesses/installed-coding-clis.md) (`2026-10-21`)
 - [Offline GGUF inference with `hf download` and `llama-cli`](ai-harnesses/local-lfm25-gguf-cache.md) (`2026-10-20`)
+- [JSONL transcripts can be harvested into TIL notes](ai-harnesses/transcript-jsonl-ingestion.md) (`2026-11-04`)
 
 ### 🐢 `turbo-the-turtle/` — Media Pipeline & `ffmpeg`
 - [Re-encode upside-down phone video clips in `ffmpeg` to bake rotation](turbo-the-turtle/ffmpeg-lanczos-rotation-fix.md) (`2026-10-24`)
+
+### 🪙 `bitcoin/` — Script, Stack Machine & CScriptNum
+- [Bitcoin Script is a Forth stack machine](bitcoin/script-forth-stack.md) (`2026-11-04`)
+
+### 🐍 `python/` — Language Basics
+- [Python print, names, and input](python/print-variables-and-input.md) (`2026-11-17`)
 
 ---
 
