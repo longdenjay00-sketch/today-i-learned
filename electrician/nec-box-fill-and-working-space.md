@@ -1,4 +1,6 @@
-# TIL 2026-11-04: NEC Box Fill Volume & Working Space Math
+# NEC box fill and working-space clearances
+
+2026-11-04
 
 ## 1. Box Fill Volume (NEC 314.16)
 - Each conductor originating outside box: 1 volume allowance (based on Table 314.16(B)).
