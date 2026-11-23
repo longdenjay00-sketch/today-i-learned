@@ -1,4 +1,6 @@
-# TIL 2026-11-04: Automated Transcript JSONL Ingestion & Chat History Harvesting
+# JSONL transcripts can be harvested into TIL notes
+
+2026-11-04
 
 ## The Architecture
 Autonomous coding harnesses and multi-turn AI environments log every execution step, tool call, reasoning trace, and terminal output into JSON Lines (`.jsonl`) streams:
