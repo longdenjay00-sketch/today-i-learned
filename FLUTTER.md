@@ -16,7 +16,7 @@ This document explains the architecture, widget lifecycle, data layer, and runti
 │   ├── models/
 │   │   └── til_note.dart                 # Immutable TilNote, TilTopic enum, & Markdown parser
 │   ├── data/
-│   │   └── til_repository.dart           # Canonical 20-note corpus, search & spotlight engine
+│   │   └── til_repository.dart           # Note corpus, search & spotlight engine
 │   └── widgets/
 │       └── today_i_learned_widget.dart   # TodayILearnedWidget, Bento Grid, Swipe Deck & Modals
 └── test/
@@ -38,6 +38,8 @@ Every top-level folder in the repository maps to a strongly typed `TilTopic` enu
 | `TilTopic.electrician` | `electrician` | Electrician | `#FFD600` | `Icons.bolt_rounded` |
 | `TilTopic.aiHarnesses` | `ai-harnesses` | AI Harnesses | `#D500F9` | `Icons.auto_awesome_rounded` |
 | `TilTopic.turboTheTurtle` | `turbo-the-turtle` | Turbo the Turtle | `#1DE9B6` | `Icons.movie_filter_rounded` |
+| `TilTopic.bitcoin` | `bitcoin` | Bitcoin | `#F7931A` | `Icons.currency_bitcoin` |
+| `TilTopic.python` | `python` | Python | `#4B8BBE` | `Icons.code_rounded` |
 
 ### `TilNote` & Markdown Serialization
 `TilNote` is an immutable value object with bidirectional Markdown support:
@@ -59,7 +61,7 @@ Every top-level folder in the repository maps to a strongly typed `TilTopic` enu
 
 | Parameter | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
-| `initialNotes` | `List<TilNote>` | `TilRepository.allNotes` | The list of notes to display. Defaults to all 20 repository notes. |
+| `initialNotes` | `List<TilNote>` | `TilRepository.allNotes` | The list of notes to display. Defaults to every note in `TilRepository`. |
 | `initialTopic` | `TilTopic?` | `null` | Pre-selects a single topic filter when the widget mounts. |
 | `initialViewMode` | `TilViewMode` | `TilViewMode.bentoGrid` | Starts in either `TilViewMode.bentoGrid` or `TilViewMode.deck`. |
 | `title` | `String` | `'Today I Learned'` | Hero banner headline text. |
