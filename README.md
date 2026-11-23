@@ -9,6 +9,7 @@ One file per note, distilled from hands-on sessions across our `aarch64` Termux 
 ## ✨ Documentation & Architecture Guides
 
 - **[`README.md`](README.md)** — Topic index of every note, quick-start guide, and markdown specification.
+- **[`CHANGELOG.md`](CHANGELOG.md)** — Release and curation history for the TIL corpus and Flutter showcase package.
 - **[`FLUTTER.md`](FLUTTER.md)** — Flutter package architecture, `TodayILearnedWidget` API reference, state management, and instructions for running on Android, Linux X11 (`DISPLAY=:0`), and Web.
 - **[`DESIGN.md`](DESIGN.md)** — Visual design system ("Obsidian & Neon"), Material 3 color tokens, typography scale, micro-interactions, and mass-appeal UX psychology.
 
@@ -51,7 +52,7 @@ class KnowledgeScreen extends StatelessWidget {
 
 ---
 
-## 📚 Topic Index (29 Notes)
+## 📚 Topic Index (34 Notes)
 
 ### 🗂️ `johnny-decimal/` — System Spine & Filesystem Layout
 - [The home areas are the Johnny Decimal system](johnny-decimal/areas.md) (`2026-10-26`)
@@ -61,6 +62,7 @@ class KnowledgeScreen extends StatelessWidget {
 - [Morpheus is the Kali guide](johnny-decimal/morpheus.md) (`2026-10-26`)
 - [The three-letter directory names are gone](johnny-decimal/old-short-names.md) (`2026-10-26`)
 - [/root has no loose files](johnny-decimal/root-listing.md) (`2026-10-26`)
+- [Isolate secrets in 90_VAULT while symlinking Johnny Decimal areas into gdrive](johnny-decimal/gdrive-symlink-vault-isolation.md) (`2026-11-23`)
 
 ### 🐉 `termux-kali/` — Android Host, PRoot Guest & X11
 - [Start Termux:X11 from PRoot with `sv up tx11` and symlink `X0`](termux-kali/x11-display-socket.md) (`2026-10-23`)
@@ -70,6 +72,8 @@ class KnowledgeScreen extends StatelessWidget {
 - [Allow `esbuild` postinstall scripts under npm 12 on `aarch64`](termux-kali/esbuild-allow-scripts.md) (`2026-10-24`)
 - [Installed Android tools vs repo-only packages on Kali PRoot](termux-kali/android-tools-installed.md) (`2026-10-22`)
 - [PRoot glibc clients need the X11 socket at /tmp](termux-kali/x11-bionic-glibc-socket.md) (`2026-11-04`)
+- [Locate Termux live tmux socket from inside PRoot](termux-kali/tmux-termux-socket-from-proot.md) (`2026-11-23`)
+- [Termux X11 recovery flags and Turnip vs VirGL GPU acceleration](termux-kali/termux-x11-turnip-flags-and-desktop.md) (`2026-11-23`)
 
 ### 🔧 `conduit-bending/` — EMT Hand-Bender Math & NEC 358
 - [EMT hand-bender take-up is 5 in., 6 in., and 8 in.](conduit-bending/take-up-and-stub.md) (`2026-10-25`)
@@ -88,6 +92,8 @@ class KnowledgeScreen extends StatelessWidget {
 - [Install paths for `agy`, `grok`, `opencode`, and `codex` on this host](ai-harnesses/installed-coding-clis.md) (`2026-10-21`)
 - [Offline GGUF inference with `hf download` and `llama-cli`](ai-harnesses/local-lfm25-gguf-cache.md) (`2026-10-20`)
 - [JSONL transcripts can be harvested into TIL notes](ai-harnesses/transcript-jsonl-ingestion.md) (`2026-11-04`)
+- [Run glibc agy in musl PRoot guests to avoid Cortex-A53 SIGILL](ai-harnesses/agy-glibc-musl-sigill-cortex-a53.md) (`2026-11-23`)
+- [Diagnose OpenCode SQLite session_v2 schema mismatches safely](ai-harnesses/opencode-sqlite-session-v2-mismatch.md) (`2026-11-23`)
 
 ### 🐢 `turbo-the-turtle/` — Media Pipeline & `ffmpeg`
 - [Re-encode upside-down phone video clips in `ffmpeg` to bake rotation](turbo-the-turtle/ffmpeg-lanczos-rotation-fix.md) (`2026-10-24`)
