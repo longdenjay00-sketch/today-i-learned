@@ -36,6 +36,8 @@ Each topic folder in the repository is assigned a distinct high-contrast neon ac
 | `electrician/` | ⚡ | `#FFD600` (Arc Gold) | `#FFAB00` | High-voltage NEC code rules |
 | `ai-harnesses/` | 🤖 | `#D500F9` (Neural Magenta) | `#651FFF` | Agentic harnesses (`agy`, `Grok`) |
 | `turbo-the-turtle/` | 🐢 | `#1DE9B6` (Aqua Mint) | `#00BFA5` | Video pipelines & `ffmpeg` |
+| `bitcoin/` | 🪙 | `#F7931A` (Bitcoin Orange) | `#C67C12` | Script stack machine |
+| `python/` | 🐍 | `#4B8BBE` (Python Blue) | `#FFD43B` | `print`, names, and `input` |
 
 ---
 
