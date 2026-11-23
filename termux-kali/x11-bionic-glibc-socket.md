@@ -1,4 +1,6 @@
-# TIL 2026-11-04: PRoot glibc vs Termux Bionic X11 UNIX Domain Socket Bridge
+# PRoot glibc clients need the X11 socket at /tmp
+
+2026-11-04
 
 ## The Core Problem
 When launching `termux-x11` on the Android host, the X11 server binds its domain socket inside Termux's `$TMPDIR`:
