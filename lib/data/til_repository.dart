@@ -1,14 +1,13 @@
 import '../models/til_note.dart';
 
-/// Provides the canonical 20 Today I Learned notes from the repository,
-/// plus search, topic filtering, and daily spotlight selection.
+/// Canonical Today I Learned notes, plus search, topic filtering, and spotlight.
 class TilRepository {
   const TilRepository._();
 
-  /// Complete corpus of 20 verified TIL notes across all 6 topic areas.
+  /// Notes mirrored from `<topic>/<slug>.md`. Keep this list in step with the files.
   static const List<TilNote> allNotes = <TilNote>[
     // -------------------------------------------------------------------------
-    // 1. johnny-decimal/ (7 notes)
+    // johnny-decimal/
     // -------------------------------------------------------------------------
     TilNote(
       slug: 'areas',
@@ -143,7 +142,7 @@ class TilRepository {
     ),
 
     // -------------------------------------------------------------------------
-    // 2. termux-kali/ (5 notes)
+    // termux-kali/
     // -------------------------------------------------------------------------
     TilNote(
       slug: 'x11-display-socket',
@@ -225,9 +224,22 @@ class TilRepository {
       keyCommandOrRule: 'apt install jadx apktool dex2jar fastboot',
       tags: <String>['adb', 'scrcpy', 'jadx', 'apktool', 'kali-rolling'],
     ),
+    TilNote(
+      slug: 'x11-bionic-glibc-socket',
+      topic: TilTopic.termuxKali,
+      title: 'PRoot glibc clients need the X11 socket at /tmp',
+      date: '2026-11-04',
+      summary:
+          'termux-x11 binds `/data/data/com.termux/files/usr/tmp/.X11-unix/X0`. glibc clients inside Kali PRoot look for `/tmp/.X11-unix/X0` and fail with `Can\'t open display: :0` until those paths are linked.',
+      details:
+          'Supervise the server with the `tx11` runit service. `x11vnc` can attach to `DISPLAY=:0` on port 5900.',
+      keyCommandOrRule:
+          'ln -sf /data/data/com.termux/files/usr/tmp/.X11-unix/X0 /tmp/.X11-unix/X0',
+      tags: <String>['termux-x11', '/tmp/.X11-unix/X0', 'tx11', 'x11vnc'],
+    ),
 
     // -------------------------------------------------------------------------
-    // 3. conduit-bending/ (3 notes)
+    // conduit-bending/
     // -------------------------------------------------------------------------
     TilNote(
       slug: 'take-up-and-stub',
@@ -267,7 +279,7 @@ class TilRepository {
     ),
 
     // -------------------------------------------------------------------------
-    // 4. electrician/ (1 note)
+    // electrician/
     // -------------------------------------------------------------------------
     TilNote(
       slug: 'nec-chapter-9-table-1-fill',
@@ -281,9 +293,21 @@ class TilRepository {
       keyCommandOrRule: '1 cond: 53% | 2 cond: 31% | 3+ cond: 40% | Nipple ≤24": 60%',
       tags: <String>['NEC Ch. 9 Table 1', '53% / 31% / 40%', '60% nipple rule'],
     ),
+    TilNote(
+      slug: 'nec-box-fill-and-working-space',
+      topic: TilTopic.electrician,
+      title: 'NEC box fill and working-space clearances',
+      date: '2026-11-04',
+      summary:
+          'NEC 314.16 counts each outside conductor as one volume allowance, a cable clamp as one, a device strap as two, and equipment grounds as one allowance through four grounds. 14 AWG is 2.00 in³, 12 AWG is 2.25 in³, and 10 AWG is 2.50 in³.',
+      details:
+          'NEC 110.26 working space is at least 30 in. wide, with 6.5 ft of headroom. Depth at 0–150 V is 3.0 ft. From 151–600 V it is 3.0 ft, 3.5 ft, or 4.0 ft depending on the condition.',
+      keyCommandOrRule: 'NEC 314.16 box fill | NEC 110.26 working space',
+      tags: <String>['NEC 314.16', 'NEC 110.26', '14 AWG', '12 AWG', '10 AWG'],
+    ),
 
     // -------------------------------------------------------------------------
-    // 5. ai-harnesses/ (6 notes)
+    // ai-harnesses/
     // -------------------------------------------------------------------------
     TilNote(
       slug: 'fifty-repos-developer-roadmap',
@@ -359,9 +383,26 @@ class TilRepository {
           'hf download LiquidAI/LFM2.5-1.2B-Instruct-GGUF --include LFM2.5-1.2B-Instruct-Q4_K_M.gguf',
       tags: <String>['hf download', 'llama-cli', 'GGUF', 'LFM2.5-1.2B'],
     ),
+    TilNote(
+      slug: 'transcript-jsonl-ingestion',
+      topic: TilTopic.aiHarnesses,
+      title: 'JSONL transcripts can be harvested into TIL notes',
+      date: '2026-11-04',
+      summary:
+          'Harness logs land in `transcript.jsonl` (step telemetry) and `transcript_full.jsonl` (full completions). Filter `type == "PLANNER_RESPONSE"` and read `tool_calls` instead of copying a session by hand.',
+      details:
+          '`run_command` events keep the shell replay. `write_file` and `edit_file` events reconstruct which files changed. Compact the high-priority lines into `<topic>/<slug>.md`.',
+      keyCommandOrRule: 'transcript.jsonl',
+      tags: <String>[
+        'transcript.jsonl',
+        'transcript_full.jsonl',
+        'PLANNER_RESPONSE',
+        'tool_calls',
+      ],
+    ),
 
     // -------------------------------------------------------------------------
-    // 6. turbo-the-turtle/ (1 note)
+    // turbo-the-turtle/
     // -------------------------------------------------------------------------
     TilNote(
       slug: 'ffmpeg-lanczos-rotation-fix',
@@ -374,6 +415,39 @@ class TilRepository {
           '`10_DEV/turtle_edit/turtle_youtube.py` compiles, pads (`1920x1080`), and scales Turbo the Turtle and Fishy clips using `ffmpeg` Lanczos without requiring an AI upscaler.',
       keyCommandOrRule: 'python3 10_DEV/turtle_edit/turtle_youtube.py',
       tags: <String>['ffmpeg', 'lanczos', '1920x1080', 'turtle_youtube.py'],
+    ),
+
+    // -------------------------------------------------------------------------
+    // bitcoin/
+    // -------------------------------------------------------------------------
+    TilNote(
+      slug: 'script-forth-stack',
+      topic: TilTopic.bitcoin,
+      title: 'Bitcoin Script is a Forth stack machine',
+      date: '2026-11-04',
+      summary:
+          'Bitcoin Script is a linear two-stack machine (`STACK` and `ALTSTACK`) with no jumps or recursion, so every evaluation finishes in O(N). Integers are little-endian sign-magnitude (`CScriptNum`); the high bit `0x80` is the sign, and zero is an empty byte array.',
+      details:
+          'A P2PKH spend pushes `<signature>` and `<pubkey>`. The locking script runs `OP_DUP`, `OP_HASH160`, the pubkey hash, `OP_EQUALVERIFY`, then `OP_CHECKSIG`. A hash mismatch fails at `OP_EQUALVERIFY` before the signature check.',
+      keyCommandOrRule: 'OP_DUP OP_HASH160 <pubKeyHash> OP_EQUALVERIFY OP_CHECKSIG',
+      tags: <String>['CScriptNum', 'OP_EQUALVERIFY', 'OP_CHECKSIG', 'P2PKH'],
+    ),
+
+    // -------------------------------------------------------------------------
+    // python/
+    // -------------------------------------------------------------------------
+    TilNote(
+      slug: 'print-variables-and-input',
+      topic: TilTopic.python,
+      title: 'Python print, names, and input',
+      date: '2026-11-17',
+      summary:
+          '`print` writes a line. A name is case-sensitive, so `name` and `Name` are different variables. `input` always returns a `str`, and a number typed at the keyboard needs `int`.',
+      details:
+          '`type("69")` is `str` because of the quotes. `int("69")` is the number.',
+      keyCommandOrRule:
+          'print(f"{name} loves learning python from {teacher}!")',
+      tags: <String>['print', 'input', 'int', 'str', 'f-string'],
     ),
   ];
 
