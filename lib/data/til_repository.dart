@@ -140,6 +140,18 @@ class TilRepository {
       keyCommandOrRule: 'ls /root',
       tags: <String>['ls /root', '91_OBSIDIAN', '50_OPS/ssb', '55_INFRA/code'],
     ),
+    TilNote(
+      slug: 'gdrive-symlink-vault-isolation',
+      topic: TilTopic.johnnyDecimal,
+      title: 'Isolate secrets in 90_VAULT while symlinking Johnny Decimal areas into gdrive',
+      date: '2026-11-23',
+      summary:
+          'Symlink `00_INBOX` through `80_ARCHIVE` into `70_BACKUP/longden/gdrive` from Termux `$HOME` and every `proot-distro` `/root`, while keeping `90_VAULT` (`chmod 700` dirs, `chmod 600` keys) strictly outside `gdrive`. Symlink active SSH/ADB keys back into `55_INFRA/dotfiles/` and `source` `gh_pat_token.env` conditionally.',
+      details:
+          'Initialize `90_VAULT` on a local-only branch (`vault-local`) with zero remotes and an inclusive `*` `.gitignore` tracking only `.gitignore` and `VAULT_INDEX.md`, and push-lock index repos with `git remote set-url --push <remote> DISABLED-LOCAL-ONLY`.',
+      keyCommandOrRule: 'git remote set-url --push gh-obsidianvaults DISABLED-LOCAL-ONLY',
+      tags: <String>['90_VAULT', 'gdrive', 'vault-local', 'DISABLED-LOCAL-ONLY'],
+    ),
 
     // -------------------------------------------------------------------------
     // termux-kali/
@@ -236,6 +248,31 @@ class TilRepository {
       keyCommandOrRule:
           'ln -sf /data/data/com.termux/files/usr/tmp/.X11-unix/X0 /tmp/.X11-unix/X0',
       tags: <String>['termux-x11', '/tmp/.X11-unix/X0', 'tx11', 'x11vnc'],
+    ),
+    TilNote(
+      slug: 'tmux-termux-socket-from-proot',
+      topic: TilTopic.termuxKali,
+      title: 'Locate Termux live tmux socket from inside PRoot',
+      date: '2026-11-23',
+      summary:
+          'Termux sets `TMUX_TMPDIR=/data/data/com.termux/files/usr/var/run` (`tmux-<uid>/default`), whereas PRoot defaults to `/tmp/tmux-0/default` and reports `no server running`. Pass `-S` with the Termux socket path.',
+      details:
+          'Add `-J` to `capture-pane` to unwrap long lines, and redact OAuth URLs, keys, or tokens before writing logs.',
+      keyCommandOrRule:
+          'tmux -S /data/data/com.termux/files/usr/var/run/tmux-10135/default list-panes -a',
+      tags: <String>['tmux', 'TMUX_TMPDIR', 'proot-distro', 'capture-pane'],
+    ),
+    TilNote(
+      slug: 'termux-x11-turnip-flags-and-desktop',
+      topic: TilTopic.termuxKali,
+      title: 'Termux X11 recovery flags and Turnip vs VirGL GPU acceleration',
+      date: '2026-11-23',
+      summary:
+          'Use `-legacy-drawing` for black-screen cursor glitches, `-force-bgra` for inverted colors, `-disable-gpu-present` for flicker, `-ac` for PRoot clients, and `-disable-dri3` with `lavapipe`.',
+      details:
+          'Adreno GPUs use Turnip + Zink (`GALLIUM_DRIVER=zink`), while Mali and `proot-distro` guests can forward OpenGL ES through `virgl_test_server_android &` with `--shared-tmp` and `GALLIUM_DRIVER=virpipe`.',
+      keyCommandOrRule: 'termux-x11 :0 -legacy-drawing -ac',
+      tags: <String>['termux-x11', 'Turnip', 'Zink', 'VirGL', '-legacy-drawing'],
     ),
 
     // -------------------------------------------------------------------------
@@ -399,6 +436,31 @@ class TilRepository {
         'PLANNER_RESPONSE',
         'tool_calls',
       ],
+    ),
+    TilNote(
+      slug: 'agy-glibc-musl-sigill-cortex-a53',
+      topic: TilTopic.aiHarnesses,
+      title: 'Run glibc agy in musl PRoot guests to avoid Cortex-A53 SIGILL',
+      date: '2026-11-23',
+      summary:
+          'Static `linux-arm64` musl `agy` SIGILLs on Cortex-A53/A73 without LSE atomics. Ship the glibc build to `/opt/agy/agy` and set `AGY_CLI_DISABLE_AUTO_UPDATE=1` on Alpine and Void.',
+      details:
+          'Because Void symlinks `/lib -> usr/lib`, place the glibc loader link in `/usr/lib/ld-linux-aarch64.so.1` or exec `/opt/agy/glibc/ld-linux-aarch64.so.1 --library-path /opt/agy/glibc /opt/agy/agy`.',
+      keyCommandOrRule: 'export AGY_CLI_DISABLE_AUTO_UPDATE=1',
+      tags: <String>['agy', 'musl', 'glibc', 'SIGILL', 'Cortex-A53'],
+    ),
+    TilNote(
+      slug: 'opencode-sqlite-session-v2-mismatch',
+      topic: TilTopic.aiHarnesses,
+      title: 'Diagnose OpenCode SQLite session_v2 schema mismatches safely',
+      date: '2026-11-23',
+      summary:
+          '`opencode` fails with `Error: Database is not empty and has no session table` when `~/.local/share/opencode/opencode.db` is on the `session_v2` schema (`50` migrations) while an older CLI expects legacy `session`.',
+      details:
+          'Inspect `opencode.db` read-only with `sqlite3` URI `mode=ro` and check `opencode --version` before backing up the SQLite DB or upgrading the binary.',
+      keyCommandOrRule:
+          'sqlite3 "file:$HOME/.local/share/opencode/opencode.db?mode=ro" ".tables"',
+      tags: <String>['opencode', 'sqlite3', 'session_v2', 'migration'],
     ),
 
     // -------------------------------------------------------------------------
