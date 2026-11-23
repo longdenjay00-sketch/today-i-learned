@@ -1,4 +1,6 @@
-# TIL 2026-11-04: Bitcoin Script Stack Machine & CScriptNum Encoding
+# Bitcoin Script is a Forth stack machine
+
+2026-11-04
 
 ## Key Insights
 1. **Forth-like Stack Machine:** Bitcoin Script uses a linear, two-stack architecture (`STACK` and `ALTSTACK`) without loops (`JMP`, `GOTO`, and recursive constructs are intentionally omitted) to eliminate Denial of Service (DoS) attacks and ensure every transaction evaluation terminates in finite linear time $O(N)$.
