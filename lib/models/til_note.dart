@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-/// Represents one of the six domain categories in the Today I Learned corpus.
+/// Domain folder for a Today I Learned note. One value per topic directory.
 enum TilTopic {
   johnnyDecimal(
     id: 'johnny-decimal',
@@ -55,6 +55,24 @@ enum TilTopic {
     icon: Icons.movie_filter_rounded,
     accentColor: Color(0xFF1DE9B6),
     secondaryColor: Color(0xFF00BFA5),
+  ),
+  bitcoin(
+    id: 'bitcoin',
+    label: 'Bitcoin',
+    subtitle: 'Script, Stack Machine & CScriptNum',
+    emoji: '🪙',
+    icon: Icons.currency_bitcoin,
+    accentColor: Color(0xFFF7931A),
+    secondaryColor: Color(0xFFC67C12),
+  ),
+  python(
+    id: 'python',
+    label: 'Python',
+    subtitle: 'Language Basics',
+    emoji: '🐍',
+    icon: Icons.code_rounded,
+    accentColor: Color(0xFF4B8BBE),
+    secondaryColor: Color(0xFFFFD43B),
   );
 
   const TilTopic({
